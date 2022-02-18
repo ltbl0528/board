@@ -17,8 +17,6 @@ public class BoardDTO {
 
     private String content;
 
-    private String writer;
-
     private String writerEmail; //작성자의 이메일(id)
 
     private String writerName; //작성자의 이름
