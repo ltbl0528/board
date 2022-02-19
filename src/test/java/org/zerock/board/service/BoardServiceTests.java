@@ -24,14 +24,43 @@ public class BoardServiceTests {
 //        Long bno = boardService.register(dto);
 //    }
 
+    //목록 처리 테스트
+//    @Test
+//    public void testList() {
+//        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+//
+//        PageResultDTO<BoardDTO, Object[]> result = boardService.getList(pageRequestDTO);
+//
+//        for(BoardDTO boardDTO : result.getDtoList()) {
+//            System.out.println(boardDTO);
+//        }
+//    }
+    //게시물 조회 테스트
+//    @Test
+//    public void testGet() {
+//        Long bno = 100L;
+//
+//        BoardDTO boardDTO = boardService.get(bno);
+//
+//        System.out.println(boardDTO);
+//    }
+    //게시물 삭제 테스트
+//    @Test
+//    public void testDelete() {
+//        Long bno = 1L;
+//
+//        boardService.removeWithReplies(bno);
+//    }
+
+    //게시글 수정 테스트
     @Test
-    public void testList() {
-        PageRequestDTO pageRequestDTO = new PageRequestDTO();
+    public void testModify() {
+        BoardDTO boardDTO = BoardDTO.builder()
+                .bno(2L)
+                .title("제목 변경")
+                .content("내용 변경")
+                .build();
 
-        PageResultDTO<BoardDTO, Object[]> result = boardService.getList(pageRequestDTO);
-
-        for(BoardDTO boardDTO : result.getDtoList()) {
-            System.out.println(boardDTO);
-        }
+        boardService.modify(boardDTO);
     }
 }
