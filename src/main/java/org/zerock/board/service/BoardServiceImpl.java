@@ -66,6 +66,7 @@ public class BoardServiceImpl implements BoardService{
         repository.deleteById(bno);
     }
 
+    //select -> update의 트랜잭션 처리가 필요
     @Transactional
     @Override
     public void modify(BoardDTO boardDTO) {
