@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Reply;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -34,14 +35,23 @@ public class ReplyRepositoryTests {
 //        });
 //    }
 
+//    @Test
+//    public void readReply1() {
+//
+//        Optional<Reply> result = replyRepository.findById(1L);
+//
+//        Reply reply = result.get();
+//
+//        System.out.println(reply);
+//        System.out.println(reply.getBoard());
+//    }
+
     @Test
-    public void readReply1() {
+    public void testListByBoard() {
+        List<Reply> replyList = replyRepository.getRepliesByBoardOrderByRno(
+                Board.builder().bno(97L).build()
+        );
 
-        Optional<Reply> result = replyRepository.findById(1L);
-
-        Reply reply = result.get();
-
-        System.out.println(reply);
-        System.out.println(reply.getBoard());
+        replyList.forEach(reply -> System.out.println(reply));
     }
 }
